@@ -7,12 +7,13 @@ router.post('/', (req, res) => {
         return res.status(400).send("Not image uploaded!")
     }
     const file = req.files.timage
-    file.mv(`${__dirname}/image-upload/public/upload/images/${file.name}`, err => {
+    let imgName = new Date().getTime()+file.name
+    file.mv(`${__dirname}/image-upload/public/upload/images/${imgName}`, err => {
         if(err){
             console.error(err)
             return res.status(500).send(err)
         }
-        res.json({fileName: file.name, filePath: `/upload/images/${file.name}`})
+        res.json({fileName: file.name, filePath: `/upload/images/${imgName}`})
     })
 })
 
