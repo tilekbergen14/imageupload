@@ -6,15 +6,20 @@ import "./prism/prism.css";
 import Blogs from "./components/Blogs";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar"
+import Blog from "./components/Blog"
+import { ContextProvider } from './Context'
 
 export default function App() {
   return (
     <BrowserRouter>
-          <Navbar />
-          <Switch>
-              <Route path="/createblog/" exact component={CreateBlog} />
-              <Route path="/blogs/" exact component={Blogs} />
-          </Switch>
+          <ContextProvider>
+            <Navbar />
+            <Switch>
+                <Route path="/createblog/" exact component={CreateBlog} />
+                <Route path="/blogs/" exact component={Blogs} />
+                <Route path="/blogs/:id" exact component={Blog} />
+            </Switch>
+          </ContextProvider>
     </BrowserRouter>
   );
 }
