@@ -1,8 +1,29 @@
 const express = require('express')
-const { model } = require('mongoose')
+const Blog = require('./models')
 const router = express.Router()
 
-router.post('/', (req, res) => {
+router.get('/', async (req, res) => {
+    try{
+       const blogs = await Blog.find().sort("-createdAt")
+       res.json(blogs)
+    }
+    catch(err){
+        res.status(409).send(err.message)
+    }
+})
+
+router.post('/', async (req, res) => {
+    try{
+        const blog = new Blog(req.body)
+        const result = await blog.save()
+        res.json(result)
+    }
+    catch(err){
+        res.status(409).send(err.message)
+    }
+})
+
+router.post('/createimg', (req, res) => {
     if(req.files === null){
         return res.status(400).send("Not image uploaded!")
     }

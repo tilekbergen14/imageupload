@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0 0 16px 0;
+}
+h1{font-size: 2em; font-weight: bolder}
+h2{font-size: 1.5em; font-weight: bolder}
+h3{font-size: 1.17em; font-weight: bolder}
+h4{font-size: 1em; font-weight: bolder}
+h5{font-size: .83em; font-weight: bolder}
+h6{font-size: .67em; font-weight: bolder}
+
+body{
+    font-family: 'Prata', serif;
+    color: #000000;
+}
+
+blockquote{
+    padding: 10px 24px;
+    border-left: 4px solid black;
+    background-color: rgb(247, 247, 247);
+}
+blockquote > p{
+    margin: 0
+}
